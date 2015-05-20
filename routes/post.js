@@ -72,8 +72,8 @@ router.post('/delete', function(req, res) {
 router.post('/update', function(req, res) {
 	var id = req.param('id');
 	PostModel.findById(id, function(err, post) {
-		post.title = req.param.title;
-		post.content = req.param.content;
+		post.title = req.body.title;
+		post.content = req.body.content;
 		if (err) {
 			console.log('Err in update post: '+err);
 			res.send({'result':false});
